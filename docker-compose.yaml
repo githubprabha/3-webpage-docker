@@ -1,0 +1,27 @@
+version: '3.0'
+services:
+  httpd-service:
+    build:
+      context: ./pet_shop_html_template
+    ports:
+      - 81:80
+    volumes:
+      - petshop-data:/usr/local/apache2/htdocs
+  httpd-service-1:
+    build:
+      context: ./cakeshop_template
+    ports:
+      - 82:80
+    volumes:
+      - cakeshop-data:/usr/local/apache2/htdocs
+  httpd-service-3:
+    build:
+      context: ./gym-docker-template
+    ports:
+      - 83:80
+    volumes:
+      - gym-data:/usr/local/apache2/htdocs
+volumes:
+  petshop-data:
+  cakeshop-data:
+  gym-data:
